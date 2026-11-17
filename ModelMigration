@@ -7,6 +7,9 @@ touch Dockerfile
 nano Dockerfile
 touch docker-compose.yml
 nano docker-compose.yml
+mkdir -p docker/nginx
+touch docker/nginx/default.conf
+nano docker/nginx/default.conf
 
 
 php artisan make:model Page -m
