@@ -1,3 +1,14 @@
+mkdir -p ~/projects/institution-cms
+cd ~/projects/institution-cms
+mkdir docker
+mkdir docker/nginx
+mkdir src
+touch Dockerfile
+nano Dockerfile
+touch docker-compose.yml
+nano docker-compose.yml
+
+
 php artisan make:model Page -m
 php artisan make:model Category -m
 php artisan make:model Tag -m
@@ -20,3 +31,40 @@ php artisan make:model GalleryImage -m
 php artisan make:model Download -m
 php artisan make:model WebsiteSetting -m
 php artisan make:model ContactSubmission -m
+
+ Schema::create('pages', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->string('slug')->unique();
+
+            $table->longText('content')->nullable();
+            $table->string('featured_image')->nullable();
+
+            $table->string('status', 30)->default('draft');
+            // draft, pending_review, published, archived
+
+            $table->boolean('is_homepage')->default(false);
+            $table->boolean('show_in_menu')->default(false);
+
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+
+            $table->timestamp('published_at')->nullable();
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->nullOnDelete();
+
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->nullOnDelete();
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['status', 'published_at']);
+        });
