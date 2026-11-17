@@ -1,1 +1,22 @@
+php artisan make:model Page -m
+php artisan make:model Category -m
+php artisan make:model Tag -m
+php artisan make:model Post -m
 
+php artisan make:model Menu -m
+php artisan make:model MenuItem -m
+
+php artisan make:model Department -m
+php artisan make:model FacultyMember -m
+php artisan make:model Course -m
+
+php artisan make:model Notice -m
+php artisan make:model Event -m
+
+php artisan make:model Slider -m
+php artisan make:model Gallery -m
+php artisan make:model GalleryImage -m
+
+php artisan make:model Download -m
+php artisan make:model WebsiteSetting -m
+php artisan make:model ContactSubmission -m
