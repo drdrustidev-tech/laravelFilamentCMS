@@ -31,6 +31,14 @@ docker compose exec app php artisan make:filament-resource Page
 docker compose exec app php artisan make:model PageSection -m
 
 docker compose exec app php artisan make:model PageBlock -m
+docker compose exec app php artisan make:controller PageController
+docker compose exec app sh -lc '
+mkdir -p resources/views/pages
+mkdir -p resources/views/components/cms/blocks
+'
+
+mkdir -p resources/views/pages
+mkdir -p resources/views/components/cms/blocks
 
 
 php artisan make:model Page -m
