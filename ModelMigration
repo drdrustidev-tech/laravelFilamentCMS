@@ -16,6 +16,7 @@ touch .env
 docker compose exec app composer create-project laravel/laravel . --prefer-dist
 
 docker compose exec app composer require filament/filament:"^5.0" --prefer-dist
+cd institution-cms && docker compose up -d && docker compose restart app nginx
 
 
 php artisan make:model Page -m
