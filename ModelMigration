@@ -18,6 +18,14 @@ docker compose exec app composer create-project laravel/laravel . --prefer-dist
 docker compose exec app composer require filament/filament:"^5.0" --prefer-dist
 cd institution-cms && docker compose up -d && docker compose restart app nginx
 
+docker compose exec app php artisan db:wipe
+docker compose exec app sh -c "
+php artisan migrate &&
+php artisan db:seed --class=PermissionSeeder &&
+php artisan db:seed --class=RoleSeeder &&
+php artisan db:seed --class=DefaultUserSeeder
+"
+
 docker compose exec app php artisan make:model Page -m
 docker compose exec app php artisan make:filament-resource Page
 docker compose exec app php artisan make:model PageSection -m
