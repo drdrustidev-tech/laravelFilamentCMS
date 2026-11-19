@@ -52,6 +52,14 @@ docker compose exec app php artisan make:model Category -m
 docker compose exec app php artisan make:migration create_categoryables_table
 docker compose exec app php artisan make:filament-resource Category
 
+docker compose exec app php artisan make:model News -m
+docker compose exec app php artisan make:model Event -m
+
+
+
+
+
+
 php artisan make:model Page -m
 php artisan make:model Category -m
 php artisan make:model Tag -m
