@@ -40,6 +40,12 @@ mkdir -p resources/views/components/cms/blocks
 mkdir -p resources/views/pages
 mkdir -p resources/views/components/cms/blocks
 
+docker compose exec app php artisan make:model Menu -m
+
+docker compose exec app php artisan make:model MenuItem -m
+
+docker compose exec app php artisan make:model WebsiteSetting -m
+docker compose exec app php artisan make:seeder WebsiteSettingSeeder
 
 php artisan make:model Page -m
 php artisan make:model Category -m
