@@ -48,6 +48,8 @@ docker compose exec app php artisan make:model WebsiteSetting -m
 docker compose exec app php artisan make:seeder WebsiteSettingSeeder
 docker compose exec app php artisan db:seed --class=WebsiteSettingSeeder
 docker compose exec app php artisan make:filament-resource Menu
+docker compose exec app php artisan make:model Category -m
+docker compose exec app php artisan make:migration create_categoryables_table
 
 php artisan make:model Page -m
 php artisan make:model Category -m
