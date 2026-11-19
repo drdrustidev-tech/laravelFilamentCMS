@@ -54,6 +54,9 @@ docker compose exec app php artisan make:filament-resource Category
 
 docker compose exec app php artisan make:model News -m
 docker compose exec app php artisan make:model Event -m
+docker compose exec app php artisan make:filament-resource News
+
+docker compose exec app php artisan make:filament-resource Event
 
 
 
